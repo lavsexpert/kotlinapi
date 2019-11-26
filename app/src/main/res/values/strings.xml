@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinAPI</string>
+    <string name="button_search">Найти разработчиков Github</string>
+    <string name="text_town">Введите город</string>
 </resources>
