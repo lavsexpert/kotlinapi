@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
 interface GithubApiService {
 
     @GET("search/users")
@@ -23,7 +22,7 @@ interface GithubApiService {
     companion object Factory {
         fun create(): GithubApiService {
             val interceptor = HttpLoggingInterceptor()
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.BODY }
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(interceptor)

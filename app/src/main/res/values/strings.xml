@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">KotlinAPI</string>
-    <string name="button_search">Найти разработчиков Github</string>
+    <string name="button_search">Найти разработчиков в городе</string>
     <string name="text_town">Введите город</string>
+    <string name="avatar">Avatar</string>
+    <string name="result_tag">Result</string>
+    <string name="find_message">Всего %1$d на GitHub в городе %2$s. Показано %3$d:</string>
 </resources>
