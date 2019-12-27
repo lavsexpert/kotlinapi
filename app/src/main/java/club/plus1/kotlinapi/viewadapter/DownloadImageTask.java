@@ -1,4 +1,4 @@
-package com.example.kotlinapi;
+package club.plus1.kotlinapi.viewadapter;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import java.io.InputStream;
 import java.util.Objects;
 
-class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     @SuppressLint("StaticFieldLeak")
     private ImageView image;
 

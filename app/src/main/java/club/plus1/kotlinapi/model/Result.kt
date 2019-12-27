@@ -1,4 +1,4 @@
-package com.example.kotlinapi
+package club.plus1.kotlinapi.model
 
 data class Result (
     val total_count: Int,

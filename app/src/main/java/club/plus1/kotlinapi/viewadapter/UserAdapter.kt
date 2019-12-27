@@ -1,4 +1,4 @@
-package com.example.kotlinapi
+package club.plus1.kotlinapi.viewadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import club.plus1.kotlinapi.R
+import club.plus1.kotlinapi.model.User
 
 class UserAdapter(var items: List<User>, val callback: Callback) : RecyclerView.Adapter<UserAdapter.MainHolder>() {
 

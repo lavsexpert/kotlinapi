@@ -1,4 +1,4 @@
-package com.example.kotlinapi
+package club.plus1.kotlinapi.views
 
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +7,10 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import club.plus1.kotlinapi.R
+import club.plus1.kotlinapi.api.SearchRepositoryProvider
+import club.plus1.kotlinapi.model.User
+import club.plus1.kotlinapi.viewadapter.UserAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,18 +32,26 @@ class MainActivity : AppCompatActivity() {
                     result ->
                 val userList:MutableList<User> = mutableListOf()
                 for (user in result.items){
-                    userList.add(User(user.login, user.html_url, user.avatar_url))
+                    userList.add(
+                        User(
+                            user.login,
+                            user.html_url,
+                            user.avatar_url
+                        )
+                    )
                 }
                 val message = getString(R.string.find_message, result.total_count, town, result.items.size)
                 Log.d(getString(R.string.result_tag), message)
                 textResult.text = message
-                val myAdapter = UserAdapter(userList.toList(), object : UserAdapter.Callback {
-                    override fun onItemClicked(item: User) {
-                        val uris = Uri.parse(item.html_url)
-                        val intents = Intent(Intent.ACTION_VIEW, uris)
-                        view.context.startActivity(intents)
-                     }
-                })
+                val myAdapter = UserAdapter(
+                    userList.toList(),
+                    object : UserAdapter.Callback {
+                        override fun onItemClicked(item: User) {
+                            val uris = Uri.parse(item.html_url)
+                            val intents = Intent(Intent.ACTION_VIEW, uris)
+                            view.context.startActivity(intents)
+                        }
+                    })
                 list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
                 list.adapter = myAdapter
             }, { error ->

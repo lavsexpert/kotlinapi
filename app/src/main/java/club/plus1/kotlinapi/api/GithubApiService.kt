@@ -1,5 +1,6 @@
-package com.example.kotlinapi
+package club.plus1.kotlinapi.api
 
+import club.plus1.kotlinapi.model.Result
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,9 +17,6 @@ interface GithubApiService {
                @Query("sort") sort: String,
                @Query("order") order: String): Observable<Result>
 
-    /**
-     * Companion object to create the GithubApiService
-     */
     companion object Factory {
         fun create(): GithubApiService {
             val interceptor = HttpLoggingInterceptor()

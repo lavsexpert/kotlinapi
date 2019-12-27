@@ -1,5 +1,6 @@
-package com.example.kotlinapi
+package club.plus1.kotlinapi.api
 
+import club.plus1.kotlinapi.model.Result
 import io.reactivex.Observable
 
 class SearchRepository(val apiService: GithubApiService) {
